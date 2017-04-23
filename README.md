@@ -8,33 +8,17 @@ Example:
 
 ```javascript
 $ npm start
-> 123
-123
 > await 123
 123
 > Promise.resolve('a')
 'a'
 > await Promise.resolve('a')
 'a'
-> Promise.reject(new Error('oops'))
-Error: oops
-    at repl:3:25
-    at REPLServer.eval (/home/antoine/cs/async-repl/index.js:17:9)
-    at bound (domain.js:280:14)
-    at REPLServer.runBound [as eval] (domain.js:293:12)
-    at REPLServer.onLine (repl.js:536:10)
-    at emitOne (events.js:96:13)
-    at REPLServer.emit (events.js:191:7)
-    at REPLServer.Interface._onLine (readline.js:241:10)
-    at REPLServer.Interface._line (readline.js:590:8)
-    at REPLServer.Interface._ttyWrite (readline.js:869:14)
 > wait = delay => new Promise(resolve => setTimeout(resolve, delay))
 [Function: wait]
-> waitASecond = () => wait(1000)
-[Function: waitASecond]
 > log = console.log
 [Function: bound log]
-> log('a'); await waitASecond(); log('b'); await waitASecond(); log('c')
+> log('a'); await wait(1000); log('b'); await wait(1000); log('c')
 a
 b
 c
@@ -53,7 +37,7 @@ Currently, variable declaration doesn’t works as expected. But global
 variable declations are implicit (use `a = 123` instead of `var a =
 123` or `const a = 123`). See the next section to understand why.
 
-## How does it works?
+## How does it work?
 
 When you type `await 123` in the REPL, it is transformed to something
 like `(async () => await 123)()`. Then, it is evaluated and the value
