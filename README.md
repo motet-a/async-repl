@@ -33,7 +33,7 @@ program or library.*
 
 ## Gotchas
 
-Currently, variable declaration doesn’t works as expected. But global
+Currently, variable declaration doesn’t work as expected. But global
 variable declations are implicit (use `a = 123` instead of `var a =
 123` or `const a = 123`). See the next section to understand why.
 
