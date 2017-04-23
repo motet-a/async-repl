@@ -25,7 +25,7 @@ c
 undefined
 ```
 
-You can declare `async` function with many `await` statements inside,
+You can declare `async` functions with many `await` statements inside,
 use `Promise.all` and `Promise.race` and so on.
 
 *Warning: This is a quick and dirty experiment, not a really usable
@@ -51,5 +51,5 @@ into assignements to global variables, by removing the `var`, `let` or
 it’s not a big deal.
 
 (In fact, things are a bit more complicated with a dirty Babel hack to
-handle semicolons and add a `return` statement at the end of the async
-function)
+handle semicolons and to add a `return` statement at the end of the
+async function)
